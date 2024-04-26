@@ -27,4 +27,5 @@ RUN cargo install --locked --target "$(cat /.target)" --git https://github.com/a
 FROM --platform=$BUILDPLATFORM scratch
 ENV SYNC_BASE=/data
 COPY --from=builder --chmod=0755 /usr/local/cargo/bin/anki-sync-server /
+EXPOSE 8080
 CMD ["./anki-sync-server"]
